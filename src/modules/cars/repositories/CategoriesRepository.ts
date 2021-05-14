@@ -4,15 +4,29 @@ import {
     ICreateCategoryDTO,
 } from "./ICategoriesRepository";
 
+// Singleton - Cria Apenas uma instancia de uma class e ela é Global
+
 class CategoryRepository implements ICategoriesRepository {
     private categories: Category[];
 
-    constructor() {
+    private static INSTANCE: CategoryRepository;
+
+    private constructor() {
         this.categories = [];
+    }
+
+    // Metodo responsavel pór instanciar o repositorio
+    // EWle verifica se ja esxiste uma instancia aberta se nao tiver ele cria
+    public static getInstance(): CategoryRepository {
+        if (!CategoryRepository.INSTANCE) {
+            CategoryRepository.INSTANCE = new CategoryRepository();
+        }
+        return CategoryRepository.INSTANCE;
     }
 
     create({ name, description }: ICreateCategoryDTO): void {
         const category = new Category();
+
         Object.assign(category, {
             name,
             description,
