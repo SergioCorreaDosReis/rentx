@@ -18,9 +18,4 @@ specificationsRoutes.post("/", (request, response) => {
     return response.status(201).send();
 });
 
-// specificationsRoutes.get("/", (request, response) => {
-//     const listAllCategories = categoryRepository.list();
-//     return response.status(201).json(listAllCategories);
-// });
-
 export { specificationsRoutes };
