@@ -1,9 +1,11 @@
 import express from "express";
 import swaggerUi from "swagger-ui-express";
+import "./database"; // por padrão ele sabe que deve ler o arquivo index.ts da pasta
+
+import "./shared/container"; // por padrão ele sabe que deve ler o arquivo index.ts da pasta
 
 import { router } from "./routes";
 import swaggerFile from "./swagger.json";
-import "./database"; // por padrão ele sabe que deve ler o arquivo index.ts da pasta
 
 const app = express();
 

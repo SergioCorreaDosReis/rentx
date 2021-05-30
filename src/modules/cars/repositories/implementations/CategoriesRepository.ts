@@ -7,7 +7,7 @@ import {
 } from "../ICategoriesRepository";
 
 // Singleton - Cria Apenas uma instancia de uma class e ela é Global
-class CategoryRepository implements ICategoriesRepository {
+class CategoriesRepository implements ICategoriesRepository {
     private repository: Repository<Category>;
 
     constructor() {
@@ -35,4 +35,4 @@ class CategoryRepository implements ICategoriesRepository {
     }
 }
 
-export { CategoryRepository };
+export { CategoriesRepository };
