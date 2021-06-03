@@ -12,6 +12,7 @@ Nesse projeto utilizei as tecnologias:
 - TSyringe
 - DOCKER
 - Express
+- JWT
 
 Padrão utilizado no desenvolvimento:
 
