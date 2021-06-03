@@ -12,7 +12,7 @@ Nesse projeto utilizei as tecnologias:
 - TSyringe
 - DOCKER
 - Express
-- JWT
+- JWT - JSON WEB TOKEN
 
 Padrão utilizado no desenvolvimento:
 
