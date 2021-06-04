@@ -21,6 +21,9 @@ class User {
     @Column()
     IsAdmin: boolean;
 
+    @Column()
+    avatar: string; // ? define que é opicional
+
     @CreateDateColumn()
     created_at: Date;
 
