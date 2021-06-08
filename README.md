@@ -1,4 +1,4 @@
-# App Rentx - Aluguel de Carros 
+# App Rentx - Aluguel de Carros
 
 Este repositórtio é referente ao aplicativo rentx desenvolvido durante o curso IGNITE da Rocketseat - Trilha NODE.js
 
@@ -6,13 +6,13 @@ Este repositórtio é referente ao aplicativo rentx desenvolvido durante o curso
 
 Nesse projeto utilizei as tecnologias:
 
-- TypeScript
-- NodeJS
-- TypeORM
-- TSyringe
-- DOCKER
-- Express
-- JWT - JSON WEB TOKEN
+- `TypeScript`
+- `Node.JS`
+- `TypeORM`
+- `TSyringe`
+- `DOCKER`
+- `Express`
+- `JWT` - JSON WEB TOKEN
 
 Padrão utilizado no desenvolvimento:
 
@@ -20,4 +20,8 @@ Padrão utilizado no desenvolvimento:
 
 Documentação do projeto:
 
-- Swagger
+- `Swagger`
+
+Teste automatizados:
+
+- `Jest.JS`
