@@ -4,20 +4,20 @@ import { container } from "tsyringe";
 import { CreateUserUserCase } from "./CreateUserUseCase";
 
 class CreateUserController {
-    async handle(request: Request, response: Response): Promise<Response> {
-        const { name, password, email, driver_license } = request.body;
+	async handle(request: Request, response: Response): Promise<Response> {
+		const { name, password, email, driver_license } = request.body;
 
-        const createUserUserCase = container.resolve(CreateUserUserCase);
+		const createUserUserCase = container.resolve(CreateUserUserCase);
 
-        await createUserUserCase.execute({
-            name,
-            password,
-            email,
-            driver_license,
-        });
+		await createUserUserCase.execute({
+			name,
+			password,
+			email,
+			driver_license,
+		});
 
-        return response.status(201).send();
-    }
+		return response.status(201).send();
+	}
 }
 
 export { CreateUserController };
