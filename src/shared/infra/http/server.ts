@@ -3,14 +3,14 @@ import express, { NextFunction, Request, Response } from "express";
 import "express-async-errors";
 import swaggerUi from "swagger-ui-express";
 
-import "./database"; // por padrão ele sabe que deve ler o arquivo index.ts da pasta
+import "@shared/infra/typeorm"; // por padrão ele sabe que deve ler o arquivo index.ts da pasta
 
 import "@shared/container"; // por padrão ele sabe que deve ler o arquivo index.ts da pasta
 
-import { AppError } from "@errors/AppError";
+import { AppError } from "@shared/errors/AppError";
 
+import swaggerFile from "../../../swagger.json";
 import { router } from "./routes";
-import swaggerFile from "./swagger.json";
 
 const app = express();
 
