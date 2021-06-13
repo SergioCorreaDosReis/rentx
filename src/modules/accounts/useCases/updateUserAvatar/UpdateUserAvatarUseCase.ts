@@ -1,30 +1,30 @@
 import { inject, injectable } from "tsyringe";
 
-import { deleteFile } from "../../../../utils/file";
-import { IUsersRepository } from "../../repositories/IUsersRepository";
+import { IUsersRepository } from "@modules/accounts/repositories/IUsersRepository";
+import { deleteFile } from "@utils/file";
 
 interface IRequest {
-    user_id: string;
-    avatarFile: string;
+	user_id: string;
+	avatarFile: string;
 }
 
 @injectable()
 class UpdateUserAvatarUseCase {
-    constructor(
-        @inject("UsersRepository") // passa o nome colocado no container no index.ts
-        private userRepository: IUsersRepository
-    ) {}
+	constructor(
+		@inject("UsersRepository") // passa o nome colocado no container no index.ts
+		private userRepository: IUsersRepository
+	) {}
 
-    async execute({ user_id, avatarFile }: IRequest): Promise<void> {
-        const user = await this.userRepository.finById(user_id);
+	async execute({ user_id, avatarFile }: IRequest): Promise<void> {
+		const user = await this.userRepository.finById(user_id);
 
-        if (user.avatar) {
-            await deleteFile(`./tmp/avatar/${user.avatar}`);
-        }
-        user.avatar = avatarFile;
+		if (user.avatar) {
+			await deleteFile(`./tmp/avatar/${user.avatar}`);
+		}
+		user.avatar = avatarFile;
 
-        await this.userRepository.create(user);
-    }
+		await this.userRepository.create(user);
+	}
 }
 
 export { UpdateUserAvatarUseCase };
