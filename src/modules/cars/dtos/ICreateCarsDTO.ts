@@ -1,3 +1,5 @@
+import { Specification } from "../infra/typeorm/entities/Specification";
+
 interface ICreateCarsDto {
 	name: string;
 	description: string;
