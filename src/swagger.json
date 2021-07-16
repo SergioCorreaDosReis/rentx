@@ -14,9 +14,7 @@
 				"tags": ["Category"],
 				"summary": "Create a new category",
 				"description": "Create a new category",
-				"security": [
-					{"bearAuth": []}
-				],
+				"security": [{ "bearAuth": [] }],
 				"requestBody": {
 					"content": {
 						"application/json": {
@@ -78,9 +76,7 @@
 				"tags": ["Category"],
 				"summary": "Upload a new category",
 				"description": "Upload a new category",
-				"security": [
-					{"bearAuth": []}
-				],
+				"security": [{ "bearAuth": [] }],
 				"requestBody": {
 					"content": {
 						"multipart/form-data": {
@@ -108,9 +104,7 @@
 				"tags": ["Specifications"],
 				"summary": "Create a Specification",
 				"description": "Create a new Specification",
-				"security": [
-					{"bearAuth": []}
-				],
+				"security": [{ "bearAuth": [] }],
 				"requestBody": {
 					"content": {
 						"application/json": {
@@ -133,11 +127,11 @@
 		"/sessions": {
 			"post": {
 				"tags": ["Session"],
-				"summary" : "Authentication user",
-				"description" : "Authentication user",
-				"requestBody":{
+				"summary": "Authentication user",
+				"description": "Authentication user",
+				"requestBody": {
 					"content": {
-						"application/json":{
+						"application/json": {
 							"schema": {
 								"type": "object",
 								"properties": {
@@ -152,15 +146,82 @@
 						}
 					}
 				},
-				"responses":{
+				"responses": {
 					"200": {
-						"description":"User was successfully authenticated"
+						"description": "User was successfully authenticated"
 					},
 					"401": {
-						"description":"Email or password incorrect"
+						"description": "Email or password incorrect"
 					}
 				}
+			}
+		},
+		"/cars": {
+			"post": {
+				"tags": ["Cars"],
+				"summary": "Create a new car",
+				"description": "Create a new car",
+				"security": [{ "bearAuth": [] }],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/definitions/Car"
+							}
+						}
+					}
+				},
+				"response": {
+					"201": {
+						"description": "Created"
+					},
+					"400": {
+						"description": "Car already exists"
+					}
+				}
+			}
+		},
+		"/cars/images/{id}": {
+			"post": {
+				"tags": ["Cars"],
+				"summary": "Upload images",
+				"description": "Upload images",
+				"security": [{ "bearAuth": [] }],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "Car id",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"content": {
+						"multipart/form-data": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"images": {
+										"type": "array",
+										"items": {
+											"type": "string",
+											"format": "binary"
+										}
 
+									}
+								}
+							}
+						}
+					}
+				},
+				"responses":{
+					"201": {
+						"description": "Created"
+					}
+				}
 			}
 		}
 	},
@@ -172,6 +233,32 @@
 					"type": "string"
 				},
 				"description": {
+					"type": "string"
+				}
+			}
+		},
+		"Car": {
+			"type": "object",
+			"properties": {
+				"name": {
+					"type": "string"
+				},
+				"description": {
+					"type": "string"
+				},
+				"daily_rate": {
+					"type": "number"
+				},
+				"license_palte": {
+					"type": "string"
+				},
+				"fine_amount": {
+					"type": "number"
+				},
+				"brand": {
+					"type": "string"
+				},
+				"category_id": {
 					"type": "string"
 				}
 			}
