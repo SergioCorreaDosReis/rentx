@@ -30,13 +30,13 @@ class AuthenticateUserUseCase {
 		const user = await this.UsersRepository.findByEmail(email);
 
 		if (!user) {
-			throw new AppError("Email or password incorrect", 401);
+			throw new AppError("Email or password incorrect", 400);
 		}
 		// Senha esta correta?
 		const passwordMatch = await compare(password, user.password);
 
 		if (!passwordMatch) {
-			throw new AppError("Email or password incorrect", 401);
+			throw new AppError("Email or password incorrect", 400);
 		}
 
 		// Gerar JWT

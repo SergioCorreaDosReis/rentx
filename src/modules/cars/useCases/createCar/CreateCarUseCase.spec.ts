@@ -46,7 +46,7 @@ describe("Create Car", () => {
 					brand: "Brand Car",
 					category_id: "Category_ID",
 				})
-			).rejects.toBeInstanceOf(AppError);
+			).rejects.toEqual(new AppError("Car Already Exists"));
 		});
 	});
 
